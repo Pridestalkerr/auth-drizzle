@@ -12,7 +12,9 @@
   "dependencies": {
     "@total-typescript/ts-reset": "^0.5.1",
     "argon2": "^0.40.1",
+    "drizzle-orm": "^0.30.8",
     "eslint": "^9.0.0",
+    "postgres": "^3.4.4",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
