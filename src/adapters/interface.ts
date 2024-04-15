@@ -13,6 +13,8 @@ declare module Adapter {
   export type KeyInsertSchema = typeof config.keySchema.$inferInsert;
 
   export type SId = (typeof config.sessionSchema.$inferSelect)[typeof config.colDef.session.id];
+  export type SUserId =
+    (typeof config.sessionSchema.$inferSelect)[typeof config.colDef.session.userId];
   export type SessionSelectSchema = typeof config.sessionSchema.$inferSelect;
   export type SessionInsertSchema = typeof config.sessionSchema.$inferInsert;
 }
