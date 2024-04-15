@@ -1,7 +1,7 @@
-import { config } from "../config";
+import { config } from "./config";
 import { Adapter } from "./interface";
 
-import { and, eq, notInArray } from "drizzle-orm";
+import { and, eq, inArray, notInArray } from "drizzle-orm";
 
 export const adapter: Adapter = {
   getUser: async (userId) => {
@@ -132,6 +132,12 @@ export const adapter: Adapter = {
     await config.db
       .delete(config.sessionSchema)
       .where(eq(config.sessionSchema[config.colDef.session.id], sessionId));
+  },
+
+  deleteSessions: async (sessionIds) => {
+    await config.db
+      .delete(config.sessionSchema)
+      .where(inArray(config.sessionSchema[config.colDef.session.id], sessionIds));
   },
 
   deleteSessionsByUserId: async (userId, sessionsToKeep) => {
