@@ -191,5 +191,3 @@ export const adapter: Adapter = {
     return databaseKey;
   },
 };
-
-const x = adapter.getUser("3");
