@@ -9,13 +9,7 @@ import {
   pgEnum,
 } from "drizzle-orm/pg-core";
 
-export const PROVIDER_TYPES = [
-  "EMAIL",
-  "PHONE",
-  "SYSADMIN",
-  "GOOGLE",
-  "DISCORD",
-] as const;
+export const PROVIDER_TYPES = ["EMAIL", "PHONE", "SYSADMIN", "GOOGLE", "DISCORD"] as const;
 export const providers = pgEnum("providers", PROVIDER_TYPES);
 
 export const users = pgTable("users", {
@@ -100,9 +94,7 @@ export const schemas = {
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
 
-const queryClient = postgres(
-  "postgres://username:password@localhost:5432/db_name",
-);
+const queryClient = postgres("postgres://username:password@localhost:5432/db_name");
 
 export const db = drizzle(queryClient, {
   schema: schemas,
