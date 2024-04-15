@@ -13,7 +13,7 @@ export const PROVIDER_TYPES = ["EMAIL", "PHONE", "SYSADMIN", "GOOGLE", "DISCORD"
 export const providers = pgEnum("providers", PROVIDER_TYPES);
 
 export const users = pgTable("users", {
-  id: uuid("id").primaryKey().notNull(),
+  id: uuid("id").primaryKey().notNull().defaultRandom(),
   email: varchar("email", { length: 255 }).unique().notNull(),
   firstName: varchar("first_name", { length: 255 }),
   lastName: varchar("last_name", { length: 255 }),
