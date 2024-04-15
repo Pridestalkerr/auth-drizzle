@@ -158,7 +158,7 @@ export class Auth {
       | typeof config.colDef.session.activeExpires
       | typeof config.colDef.session.idleExpires
     >;
-    sessionId: Adapter.SId;
+    sessionId?: Adapter.SId;
   }) {
     const { activePeriodExpiresAt, idlePeriodExpiresAt } = this.getNewSessionExpiration();
     const token = sessionId ?? generateRandomString(40);
