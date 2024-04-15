@@ -14,6 +14,7 @@ export declare namespace Adapter {
     (typeof config.keySchema.$inferSelect)[typeof config.colDef.key.hashedPassword];
   export type KeySelectSchema = typeof config.keySchema.$inferSelect;
   export type KeyInsertSchema = typeof config.keySchema.$inferInsert;
+  export type KeyUpdateSchema = Partial<typeof config.keySchema.$inferSelect>;
 
   export type SId = (typeof config.sessionSchema.$inferSelect)[typeof config.colDef.session.id];
   export type SUserId =
@@ -49,7 +50,7 @@ export type Adapter = {
   updateKey(
     provider: Adapter.KProvider,
     providerUserId: Adapter.KProviderUserId,
-    partialKey: Adapter.KeyInsertSchema,
+    partialKey: Adapter.KeyUpdateSchema,
   ): Promise<Adapter.KeySelectSchema>;
   deleteKey(provider: Adapter.KProvider, providerUserId: Adapter.KProviderUserId): Promise<void>;
 
