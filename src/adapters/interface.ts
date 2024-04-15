@@ -20,7 +20,7 @@ declare module Adapter {
 }
 
 export type Adapter = {
-  getUser(userId: Adapter.UId): Promise<Adapter.UserSelectSchema>;
+  getUser(userId: Adapter.UId): Promise<Adapter.UserSelectSchema | null>;
   setUser(
     user: Adapter.UserInsertSchema,
     key: Omit<Adapter.KeyInsertSchema, typeof config.colDef.key.userId>,
